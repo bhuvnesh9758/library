@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import "./style.css";
 
 export function Counter() {
@@ -10,17 +10,16 @@ export function Counter() {
   React.useEffect(() => {
     fetchData()
       .then((res) => {
-        console.log({ res });
-        return res.json()
+        return res.json();
       })
-      .then(data=>setResources(data))
+      .then((data) => setResources(data))
       .catch(console.log);
   }, []);
   return (
     <div className="container">
       <p>You clicked {count} times</p>
       <button onClick={() => setCount(count + 1)}>Click me</button>
-      <p>Data fetched from api {resources && resources.length}</p>
+      <p>Data fetched from api --{resources && resources.length}</p>
     </div>
   );
 }
